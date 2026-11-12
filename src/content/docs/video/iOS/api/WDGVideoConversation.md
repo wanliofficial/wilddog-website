@@ -1,0 +1,166 @@
+---
+title: "WDGVideoConversation"
+---
+
+表示加入的视频通话，同一时间只能加入一个视频通话。
+
+## 属性
+
+### ID
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) NSString *_Nonnull ID;
+```
+
+**说明**
+
+表示当前视频通话的编号。
+
+</br>
+
+---
+
+### status
+
+**定义**
+
+```objectivec
+@property (readonly, assign, nonatomic) WDGVideoConnectionStatus status;
+```
+
+**说明**
+
+`WDGVideoConnectionStatus` 类型，表示视频通话的状态。
+
+</br>
+
+---
+
+### localParticipant
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) WDGVideoLocalParticipant *_Nonnull localParticipant;
+```
+
+**说明**
+
+[WDGVideoLocalParticipant](/video/ios/api/wdgvideolocalparticipant/) 类型，表示当前视频通话所使用的本地视频、音频流。
+
+</br>
+
+---
+
+### participant
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) WDGVideoParticipant *_Nonnull participant;
+```
+
+**说明**
+
+[WDGVideoParticipant](/video/ios/api/wdgvideoparticipant/) 对象，视频通话的对方。
+
+</br>
+
+---
+
+### delegate
+
+**定义**
+
+```objectivec
+@property (readwrite, nonatomic, nullable) id<WDGVideoConversationDelegate> delegate;
+```
+
+**说明**
+
+符合 [WDGVideoConversationDelegate](/video/ios/api/wdgvideoclientdelegate/) 协议的代理。
+
+</br>
+
+---
+
+### statsDelegate
+
+**定义**
+
+```objectivec
+@property (nonatomic, weak, nullable) id<WDGVideoConversationStatsDelegate> statsDelegate;
+```
+
+**说明**
+
+符合 [WDGVideoConversationStatsDelegate](/video/ios/api/wdgvideoclientstatsdelegate/) 协议的代理。用于获取视频流统计数据。
+
+</br>
+
+---
+
+## 方法
+
+### -disconnect
+
+**定义**
+
+```objectivec
+- (void)disconnect;
+```
+
+**说明**
+
+断开当前视频通话的连接。
+
+### -startVideoRecording:
+
+**定义**
+
+```objectivec
+- (BOOL)startVideoRecording:(NSString *)filePath;
+```
+
+**说明**
+
+录制视频并保存到本地filePath目录下。
+
+**参数**
+
+参数名 | 说明 
+---|---
+filePath|视频录制文件保存路径。
+
+**返回值**
+开启录制操作是否成功
+
+### -stopVideoRecording
+
+**定义**
+
+```objectivec
+- (void)stopVideoRecording;
+```
+
+**说明**
+
+停止视频的录制。
+
+</br>
+
+---
+
+## 常量
+
+### WDGVideoConnectionStatus 
+
+**说明**
+
+表示视频通话或会议的连接状态。
+
+- WDGVideoConnectionStatusConnecting: 表示视频通话或会议正在连接中。
+- WDGVideoConnectionStatusConnected: 表示视频通话或会议已连接。
+- WDGVideoConnectionStatusDisconnected: 表示视频通话或会议已断开连接。

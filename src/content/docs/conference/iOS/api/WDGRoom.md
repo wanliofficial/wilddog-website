@@ -1,0 +1,359 @@
+---
+title: "WDGRoom"
+---
+
+`WDGRoom` 是多人视频通话的主入口，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+
+## 属性
+
+### roomId
+
+**定义**
+
+```objectivec
+@property (nonatomic, strong) NSString *roomId;
+```
+
+**说明**
+
+Room 的唯一标识。
+
+</br>
+
+---
+
+## 方法
+
+### - initWithRoomId: delegate:
+
+**定义**
+
+```objectivec
+- (instancetype)initWithRoomId:(NSString *)roomId delegate:(id<WDGRoomDelegate>)delegate;
+```
+
+**说明**
+
+使用 roomId 初始化 Room，同时指定接收 Room 事件的代理。如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomId            | 字符串类型，代表一个 Room 的唯一标识。
+delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/conference/ios/api/wdgroomdelegate/)。
+
+**返回值**
+
+`WDGRoom` 实例。
+
+</br>
+
+---
+
+### - initWithRoomId: url: delegate:
+
+**定义**
+
+```objectivec
+- (instancetype)initWithRoomId:(NSString *)roomId domain:(NSString *)domain delegate:(id<WDGRoomDelegate>)delegate;
+```
+
+**说明**
+
+使用 roomId 初始化 Room，同时指定服务器地址和接收 Room 事件的代理。如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomId            | 字符串类型，代表一个 Room 的唯一标识。
+url               | 指定服务器的 URL。
+delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/conference/ios/api/wdgroomdelegate/)。
+
+**返回值**
+
+`WDGRoom` 实例。
+
+</br>
+
+---
+
+### - connect
+
+**定义**
+
+```objectivec
+- (void)connect;
+```
+
+**说明**
+
+加入 Room。
+
+</br>
+
+---
+
+### - disconnect
+
+**定义**
+
+```objectivec
+- (void)disconnect;
+```
+
+**说明**
+
+离开 Room。
+
+</br>
+
+---
+
+### - publishLocalStream:
+
+**定义**
+
+```objectivec
+- (void)publishLocalStream:(WDGLocalStream *)localStream;
+```
+
+**说明**
+
+发布本地媒体流。发布成功后会触发其他客户端的 `-[WDGRoomDelegate didStreamAdded:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/ios/api/wdglocalstream/)。
+
+</br>
+
+---
+
+### - publishLocalStream: withCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)publishLocalStream:(WDGLocalStream *)localStream withCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+发布本地媒体流，操作完成执行 block。发布成功会触发其他客户端的 `-[WDGRoomDelegate didStreamAdded:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/ios/api/wdglocalstream/)。
+block             | 发布操作完成执行的 block。
+
+</br>
+
+---
+
+### - unpublishLocalStream:
+
+**定义**
+
+```objectivec
+- (void)unpublishLocalStream:(WDGLocalStream *)localStream;
+```
+
+**说明**
+
+取消发布本地媒体流。取消发布成功会触发其他客户端的 `-[WDGRoomDelegate didStreamRemoved:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/ios/api/wdglocalstream/)。
+
+</br>
+
+---
+
+### - unpublishLocalStream: withCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)unpublishLocalStream:(WDGLocalStream *)localStream withCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+取消发布本地媒体流，操作完成执行 block。取消发布成功会执行 block 并触发其他客户端的 `-[WDGRoomDelegate didStreamRemoved:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/ios/api/wdglocalstream/)。
+block             | 取消发布操作完成执行的 block。
+
+</br>
+
+---
+
+### - subscribeRoomStream:
+
+**定义**
+
+```objectivec
+- (void)subscribeRoomStream:(WDGRoomStream *)roomStream;
+```
+
+**说明**
+
+订阅在 `-[WDGRoomDelegate didStreamAdded:]` 事件中获取的远端媒体流。订阅成功会触发本地的 `-[WDGRoomDelegate didStreamReceived:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/ios/api/wdgroomstream/)。
+
+</br>
+
+---
+
+### - subscribeRoomStream: withCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)subscribeRoomStream:(WDGRoomStream *)roomStream withCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+订阅在 `-[WDGRoomDelegate didStreamAdded:]` 事件中获取的远端媒体流，操作完成执行 block。订阅成功会触发本地的 `-[WDGRoomDelegate didStreamReceived:]` 事件。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/ios/api/wdgroomstream/)。
+block             | 订阅操作完成执行的 block。
+
+</br>
+
+---
+
+### - unsubscribeRoomStream:
+
+**定义**
+
+```objectivec
+- (void)unsubscribeRoomStream:(WDGRoomStream *)roomStream;
+```
+
+**说明**
+
+取消订阅指定的远端媒体流。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/ios/api/wdgroomstream/)。
+
+</br>
+
+---
+
+### - unsubscribeRoomStream: withCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)unsubscribeRoomStream:(WDGRoomStream *)roomStream withCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+取消订阅指定的远端媒体流，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/ios/api/wdgroomstream/)。
+block             | 取消订阅操作完成执行的 block。
+
+</br>
+
+---
+
+### - startRecordingWithCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)startRecordingWithCompletionBlock:(void(^)(NSString *url, NSError *error))block;
+```
+
+**说明**
+
+开始录制房间中的媒体流，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+block             | 开始录制操作完成执行的 block。
+
+</br>
+
+---
+
+### - startRecordingWithOptions: completionBlock:
+
+**定义**
+
+```objectivec
+- (void)startRecordingWithOptions:(NSDictionary *)options completionBlock:(void(^)(NSString *url, NSError *error))block;
+```
+
+**说明**
+
+开始录制房间中的媒体流，使用用户自定义选项，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+options           | 控制视频录制的可选项，字典类型。
+block             | 开始录制操作完成执行的 block。
+
+</br>
+
+---
+
+### - stopRecordingWithCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)stopRecordingWithCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+结束录制房间中的媒体流，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+block             | 结束录制操作完成执行的 block。
+
+</br>
+
+---

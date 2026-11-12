@@ -1,0 +1,46 @@
+---
+title: "媒体流统计"
+---
+
+本篇文档介绍如何获取本地视频流和远端视频流的统计数据。
+
+
+### 设置代理
+
+使用 [Conversation](/conversation/android/api/conversation/) 中的 [StatsListener](/conversation/android/api/stats-listener/) 接口可以实时获取视频的宽、高、帧率、发送接收总大小、比特率、延迟、通话类型等。
+
+```java
+mConversation.setStatsListener(rtcStatsListener);
+```
+
+### 统计本地视频数据
+
+实现本地视频数据统计接口。
+
+```java
+
+public void onLocalStreamStatsReport(LocalStreamStatsReport localStreamStatsReport) {
+    // localStreamStatsReport.getWidth()
+    // localStreamStatsReport.getHeight()
+    // localStreamStatsReport.getFps()
+    // localStreamStatsReport.getBytesSent()
+    // localStreamStatsReport.getBitsSentRate()
+    // localStreamStatsReport.getLocalCandidateType()
+}
+```
+
+### 统计远程视频数据
+
+实现远程视频数据统计接口。
+
+```java
+public void onRemoteStreamStatsReport(RemoteStreamStatsReport remoteStreamStatsReport) { 
+    // remoteStreamStatsReport.getWidth()
+    // remoteStreamStatsReport.getHeight()
+    // remoteStreamStatsReport.getFps()
+    // remoteStreamStatsReport.getBytesReceived()
+    // remoteStreamStatsReport.getBitsReceivedRate()
+    // remoteStreamStatsReport.getDelay()
+    // remoteStreamStatsReport.getRemoteCandidateType()
+}
+```
