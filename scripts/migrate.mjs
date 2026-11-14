@@ -344,9 +344,10 @@ const sidebarJs = `// 由 scripts/migrate.mjs 生成，勿手改\nexport const s
 fs.writeFileSync(path.join(ROOT, 'src/sidebar.generated.mjs'), sidebarJs);
 
 // 5.5) 旧 URL 兼容:
+// - 首页已由营销站镜像 (site-mirror/index.html) 占据, 无需 '/' 跳转
 // - Astro redirects 仅用于根路径 (Astro 静态构建会把 .html 形态 redirect 生成目录, 无法命中)
 // - 其余兼容走 public/ 下的 meta-refresh HTML 文件, 静态托管按字面路径命中
-const redirects = { '/': '/overview/' };
+const redirects = {};
 
 function redirectPage(target) {
   return `<!DOCTYPE html>
@@ -382,6 +383,13 @@ for (const [file, target] of Object.entries(compatFiles)) {
   const dest = path.join(ROOT, 'public', file);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, redirectPage(target));
+}
+
+// 5.6) 营销站镜像 (scripts/mirror-site.mjs 产物) 拷入 public/
+// 首页 index.html、/product/*、/blog/*、/life/*、/status/*、/hacker/*、/_m/* 资产
+const SITE_MIRROR = path.join(ROOT, 'site-mirror');
+if (fs.existsSync(SITE_MIRROR)) {
+  fs.cpSync(SITE_MIRROR, path.join(ROOT, 'public'), { recursive: true });
 }
 const redirectsJs = `// 由 scripts/migrate.mjs 生成，勿手改\nexport const redirects = ${JSON.stringify(redirects, null, 2)};\n`;
 fs.writeFileSync(path.join(ROOT, 'src/redirects.generated.mjs'), redirectsJs);

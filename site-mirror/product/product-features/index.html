@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh" data-pagefind-ignore>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>野狗 - 实时通信引擎</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="野狗是国内领先的实时通信云，由野狗科技推出，为企业和个人开发者提供数据存储和实时通信服务。野狗实时通信云被广泛应用于聊天通信、在线协作、网络游戏、远程控制、实时定位等多种业务场景，可以帮助企业和个人开发者减小后端开发的复杂度，降低研发成本，缩短软件的交付时间。 ">
+    <meta name="keywords" content="wilddog,realtime,BaaS,HTML5,CoAP,野狗,野狗云,实时通信云,野狗实时通信云,野狗科技,实时应用,实时定位,实时,云服务,同步,长连接,物联网">
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        window.location.href="/outmen";
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://img.wdstatic.cn/www-nd/styles/wilddog-ui.5ceee38b.css">
+    <link rel="stylesheet" href="https://css.wdstatic.cn/www-nd/styles/webfonts.8d22f436.css">
+    <link rel="stylesheet" href="https://img.wdstatic.cn/www-nd/styles/fonts.82514e40.css">
+    <link rel="stylesheet" href="https://css.wdstatic.cn/www-nd/styles/product-common.82f94fc1.css">
+    <link rel="stylesheet" href="https://img.wdstatic.cn/www-nd/styles/product-overview.da5f9def.css">
+    <link rel="stylesheet" href="https://css.wdstatic.cn/www-nd/styles/sync-overview.0500c101.css">
+    <link rel="dns-prefetch" href="https://docs.wilddog.com/">
+    <link rel="dns-prefetch" href="https://talks.z.wilddog.com">
+    <link rel="dns-prefetch" href="https://github.com">
+    <link rel="dns-prefetch" href="https://www.github.com">
+    <link rel="dns-prefetch" href="https://cdn.v2ex.com">
+    <link rel="dns-prefetch" href="https://life.wilddog.com">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container container-fluid rm-l-p rm-r-p">
+            <div class="pull-left col-md-3 header-left">
+                <a href="/"><img src="https://css.wdstatic.cn/www-nd/images/header-logo.632b6059.svg" alt="野狗" class="header-logo-pc" width="48"></a>
+                <a href="/"><img src="https://img.wdstatic.cn/www-nd/images/header-logo.632b6059.svg" alt="野狗" width="40" height="40" class="header-logo-m"></a>
+                <a href="/life/wilddog-all-job.html" target='_blank' class="v-center"><img src="https://css.wdstatic.cn/www-nd/images/index/hiring.d383c463.png" alt="" width="82" height="24"></a>
+            </div>
+    
+            <div class="pull-right col-md-9 header-right">
+                <div class="header-main">
+                    <div class="pull-left header-middle">
+                        <ul class="header-nav pull-left clearfix">
+                            <li class="nav-item pull-left">
+                                <a href="/product/product-overview" class="header-nav-link">产品<span class="gt icon-arrow"></span></a>
+                                <span class="drop-down"><img src="https://img.wdstatic.cn/www-nd/images/index/drop-down.ff929b03.svg" alt="" width="16"></span>
+                                <div class="feature-links">
+                                    <a href='/product/sync-overview' class="tab tab-line">实时通信引擎</a>
+                                     <a href='/product/video-overview' class="tab tab-line">实时视频通话<span class="preview"><img src="https://css.wdstatic.cn/www-nd/images/beta.834b5d8c.svg"alt="" height="7"></span></a>
+                                     <a href='/product/im-overview' class="tab tab-line">即时通讯<span class="preview"><img src="https://img.wdstatic.cn/www-nd/images/product/Preview-01.9c52ec96.svg" width="35" height="8" alt=""></span></a>
+                                     <a href='/product/message-overview' class="tab tab-line">短信</a>
+                                    <a href='/product/auth-overview' class="tab">身份认证</a>
+                                </div>
+                            </li>
+                            <li class="nav-item pull-left"><a href="/product/pricing" class="header-nav-link pricing-link">价格</a></li>
+                            <li class="nav-item pull-left"><a href="/product/customer/overview" class="header-nav-link customer-link">客户案例</a></li>
+                            <li class="nav-item pull-left">
+                                <a class="header-nav-link" href="/overview/">文档</a>
+                            </li>
+                            <li class="nav-item pull-left">
+                                <a href="/download" class="header-nav-link download-link">下载</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="header-user pull-right">
+                        <li class="pull-left"><a href="/my-account/login" class="login">登录</a></li>
+                        <li class="pull-right"><a href="/my-account/signup" class="btn btn-org-empty register">免费注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-ctrl">
+        <span class="menu-ctrl-line menu-ctrl-line-t"></span>
+        <span class="menu-ctrl-line menu-ctrl-line-m"></span>
+        <span class="menu-ctrl-line menu-ctrl-line-b"></span>
+    </div>
+    <div class="sub-header-wrap">
+        <div class="sub-header container row">
+            <div class="container">
+                <h2 class="subheader-title col-lg-6 col-sm-6 col-xs-6 fzlt">实时通信引擎</h2>
+                <span class="drop-down"><img src="https://css.wdstatic.cn/www-nd/images/index/drop-down.ff929b03.svg" alt="" width="16"></span>
+                <ul class="subheader-menu pull-right">
+                    <li class="subheader-menu-item pull-left"><a class="subheader-menu-link current" href='/product/sync-overview'>概览</a></li>
+                    <li class="subheader-menu-item pull-left"><a class="subheader-menu-link" href='/product/sync-function'>功能</a></li>
+                    <li class="subheader-menu-item pull-left"><a class="subheader-menu-link" href='/product/sync-features'>特性</a></li>
+                    <li class="subheader-menu-item pull-left"><a class="subheader-menu-link" href='/product/sync-wxapp'>微信小程序版</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-head">
+            <div class="overview-slogan text-center">
+                <div class='fzlt'>实时通信引擎</div>
+                <div class="overview-gray">Sync</div>
+                <div class="overview-describ">Sync 帮助企业解决应用开发中的实时通信问题，开发者通过调用API，即可为应用建立长连接，实时地双向同步数据。</div>
+                <div class='overview-animate'>
+                    <svg class="header-animate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="709" height="308" viewBox="0 0 709 308">
+                        <path fill="#8C9BA5" d="M598.087 121.554a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M585.791 121.554a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M683.204 243.027a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M683.204 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M572.404 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M572.404 121.554a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M572.404 146.929a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".4">
+                            <path fill="#8C9BA5" d="M572.404 159.617a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                        </g>
+                        <g opacity=".7">
+                            <path fill="#8C9BA5" d="M572.404 172.305a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" opacity=".4" />
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M669.817 230.339a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M669.817 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M560.008 58.116a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M560.008 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M560.008 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M560.008 108.866a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M560.008 121.554a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M656.429 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M547.514 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M547.514 96.179a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M547.514 108.866a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M547.514 121.554a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M543.138 245.755a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M543.138 271.13a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M543.138 283.818a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M644.034 230.339a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M644.034 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M644.034 281.09a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M535.119 96.179a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M631.639 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M631.639 268.402a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M631.639 281.09a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M605.956 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M605.956 268.402a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M605.956 281.09a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M593.065 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M593.065 268.402a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M593.065 281.09a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M605.956 293.86a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M580.398 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M567.506 243.027a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M567.506 255.714a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M538.375 7.167a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M525.682 7.167a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M512.989 7.167a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M500.197 7.167a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M418.263 7.365a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M418.263 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M418.263 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M405.868 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M405.868 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M392.48 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M392.48 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M392.48 58.116a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M392.48 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M392.48 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 7.365a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 45.428a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 58.116a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M380.383 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 45.428a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 58.116a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 70.803a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M366.995 83.491a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M354.898 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M354.898 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M341.51 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M341.51 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M329.115 20.053a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M329.115 32.74a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M257.615 3a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 257.615 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M244.228 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 3a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 231.832 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 41.063a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 66.438a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M231.832 79.126a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 3a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 218.842 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 41.063a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 66.438a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M218.842 79.126a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M206.447 41.063a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M206.447 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M193.655 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M193.655 41.063a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M193.655 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M193.655 66.438a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M193.655 79.126a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 3a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 181.26 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 41.063a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 66.438a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M181.26 79.126a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M167.971 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M167.971 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M167.971 53.75a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M155.477 3a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 155.477 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M155.477 15.687a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M155.477 28.375a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M143.128 28.388a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M143.103 41.076a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M143.079 53.763a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M143.03 79.139a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M129.667 66.425a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M129.643 79.113a1.5 1.5 0 1 1 .006-3 1.5 1.5 0 0 1-.006 3" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M335.626 196.856a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M335.626 209.544a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M323.231 196.856a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M323.231 209.544a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M323.231 222.232a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M323.231 234.919a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M297.448 196.856a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M284.557 196.978a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M284.557 209.666a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M284.557 235.041a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M272.162 196.978a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M272.162 209.666a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M272.162 222.353a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M272.162 235.041a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M259.27 209.666a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M259.27 222.353a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M103.638 54.147a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M84.69 257.745a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M84.69 270.433a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M84.69 283.121a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M90.747 54.147a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M72.295 257.745a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M72.295 283.121a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M72.295 308.496a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M78.352 41.46a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M78.352 79.523a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M78.352 104.898a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M65.46 79.523a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M65.46 92.21a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M65.46 104.898a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M52.767 79.523a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M52.767 92.21a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M52.767 104.898a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M40.372 79.523a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.282 16.084a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.282 92.21a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.282 104.898a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.887 16.084a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 117.189a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 142.564a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 129.876a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 155.252a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 180.627a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M27.487 193.315a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M1.5 16.084a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.1 117.189a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.1 142.564a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.1 129.876a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.1 193.315a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M14.1 206.002a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M1.705 129.876a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                            <g opacity=".4">
+                                <path fill="#8C9BA5" d="M1.705 193.315a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001" />
+                            </g>
+                        </g>
+                        <path fill="none" stroke="#8C9BA5" stroke-width=".8" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4,1" d="M342.127 58.116h44.941v47.751" />
+                        <path fill="none" stroke="#8C9BA5" stroke-width=".8" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4,1" d="M219.883 46.928h-73.57v47.751" />
+                        <path fill="none" stroke="#8C9BA5" stroke-width=".8" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4,1" d="M342.127 50.75h125.842v109.81" />
+                        <path fill="none" stroke="#8C9BA5" stroke-width=".8" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4,1" d="M342.127 43.928h189.432v68.816" />
+                        <path fill="none" stroke="#8C9BA5" stroke-width=".8" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4,1" d="M342.127 36.395h264.719v68.816" />
+                        <g class="flash flash-0">
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M39.338 236.616V118.625a5.895 5.895 0 0 1 5.896-5.895h202.159a5.895 5.895 0 0 1 5.896 5.895v117.991" />
+                            <path fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M46.461 120.041h199.313v108.805H46.461z" />
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M39.338 236.616H16.1v4.882l2.337 2.544H274.19l2.337-2.544v-4.882h-23.238" />
+                            <path fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M16.1 241.498h260.427" />
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M16.1 236.616h260.427" />
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M212.333 219.911H80.293v-88.98c0-.827.67-1.496 1.496-1.496h129.048c.826 0 1.496.669 1.496 1.496v88.98z" />
+                            <path fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M80.293 140.569h132.04" />
+                            <circle fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="85.528" cy="135.044" r="1.496" />
+                            <circle fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="90.39" cy="135.044" r="1.496" />
+                            <circle fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="95.251" cy="135.044" r="1.496" />
+                            <g class="flash-color">
+                                <path fill="#FFF" stroke-width='0' d="M149.966 165.562l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                                <path fill="#fff" class="flash-send flash-accept0" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M149.966 165.562l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                            </g>
+                        </g>
+                        <g class="flash flash-4">
+                            <path fill="transparent" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M636.1 235.314a8.728 8.728 0 0 1-8.728 8.728h-40.789a8.728 8.728 0 0 1-8.729-8.728V132.771a8.729 8.729 0 0 1 8.729-8.729h40.789a8.729 8.729 0 0 1 8.728 8.729v102.543z" />
+                            <circle fill="#fff" stroke="transparent" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="606.887" cy="127.892" r=".685" />
+                            <path fill="#fff" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M611.484 131.823a.502.502 0 0 1-.502.502h-8.179a.502.502 0 0 1 0-1.004h8.179c.277 0 .502.225.502.502zM581.176 138.441h51.345v91.006h-51.345z" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="606.926" cy="236.152" r="4.572" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="597.667" cy="131.785" r=".977" />
+                            <g class="flash-color">
+                                <path fill="#FFF" stroke-width='0' d="M610.629 171.265l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                                <path fill="none" class="flash-send flash-accept4" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M610.629 171.265l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                            </g>
+                        </g>
+                        <g class="flash flash-3">
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M559.407 139.557c0-4.192-4.569-4.763-4.569-4.763-7.277-1.085-15.004-1.669-23.011-1.669s-15.734.584-23.012 1.669c0 0-4.569.571-4.569 4.763v98.053c0 4.192 4.569 4.763 4.569 4.763 7.278 1.085 15.005 1.669 23.012 1.669s15.734-.584 23.011-1.669c0 0 4.569-.571 4.569-4.763v-98.053z" />
+                            <path fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M506.401 142.205h50.852v90.45h-50.852z" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="550.716" cy="138.87" r=".532" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="552.409" cy="138.87" r=".532" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="531.827" cy="138.87" r="1.531" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="513.042" cy="138.87" r=".814" />
+                            <g class="flash-color">
+                                <path fill="#FFF" stroke-width='0' d="M535.479 175.807l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.089-7.151 1.034z" />
+                                <path fill="none" class="flash-send flash-accept3" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M535.479 175.807l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.089-7.151 1.034z" />
+                            </g>
+                        </g>
+                        <g class="flash flash-1">
+                            <path fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M427.522 238.827a5.215 5.215 0 0 1-5.215 5.215h-69.56a5.215 5.215 0 0 1-5.215-5.215V131.402a5.215 5.215 0 0 1 5.215-5.216h69.56a5.215 5.215 0 0 1 5.215 5.216v107.425z" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="387.526" cy="238.839" r="3.029" />
+                            <circle fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="387.526" cy="131.887" r=".795" />
+                            <g class="flash-color">
+                                <path fill="#FFF" stroke-width='0' d="M391.179 172.337l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                                <path fill="none" class="flash-send flash-accept1" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M391.179 172.337l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" />
+                            </g>
+                            <path fill="none" stroke="#666" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M351.483 137.148h72.087v95.523h-72.087z" />
+                        </g>
+                        <g class="flash flash-2">
+                            <path fill="#fff" stroke="#666" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M444.522 242.458a9.182 9.182 0 0 1-7.869-7.869c-.735-5.442-1.585-13.444-1.585-21.368 0-7.921.847-15.918 1.581-21.359a9.18 9.18 0 0 1 7.871-7.871c5.441-.734 13.438-1.581 21.359-1.581 7.924 0 15.926.849 21.368 1.585a9.18 9.18 0 0 1 7.869 7.869c.735 5.442 1.585 13.444 1.585 21.368 0 7.921-.847 15.918-1.581 21.358a9.18 9.18 0 0 1-7.871 7.872c-5.441.734-13.438 1.581-21.359 1.581-7.924 0-15.926-.85-21.368-1.585z" />
+                            <path fill="none" stroke="#666" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M447.309 238.644a7.984 7.984 0 0 1-6.842-6.842c-.64-4.732-1.378-11.69-1.378-18.581 0-6.887.736-13.841 1.374-18.571a7.984 7.984 0 0 1 6.845-6.845c4.73-.638 11.684-1.374 18.571-1.374 6.891 0 13.849.738 18.581 1.378a7.984 7.984 0 0 1 6.842 6.842c.639 4.732 1.378 11.69 1.378 18.58 0 6.888-.737 13.841-1.374 18.572a7.986 7.986 0 0 1-6.845 6.845c-4.73.637-11.684 1.374-18.572 1.374-6.89 0-13.848-.739-18.58-1.378z" />
+                            <path fill="none" stroke="#666" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M448.042 236.853a6.774 6.774 0 0 1-5.785-5.785c-.611-4.412-1.356-11.164-1.356-17.847 0-6.681.743-13.428 1.353-17.839a6.772 6.772 0 0 1 5.786-5.787c4.411-.61 11.159-1.353 17.84-1.353 6.683 0 13.435.745 17.847 1.356a6.774 6.774 0 0 1 5.785 5.785c.611 4.412 1.356 11.164 1.356 17.847 0 6.681-.743 13.429-1.353 17.84a6.774 6.774 0 0 1-5.787 5.787c-4.411.609-11.158 1.352-17.839 1.352-6.683 0-13.435-.745-17.847-1.356z" />
+                            <g class="flash-color">
+                                <path fill="#FFF" stroke-width='0' d="M468.167 205.239l-7.012 9.987 4.578-.57-2.068 6.558 6.947-9.432-4.47.646z" />
+                                <path fill="none" class="flash-send flash-accept2" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M468.167 205.239l-7.012 9.987 4.578-.57-2.068 6.558 6.947-9.432-4.47.646z" />
+                            </g>
+                        </g>
+                        <path fill="#FFF" d="M246.847 78.067c-13.113 0-23.782-10.719-23.782-23.894 0-9.471 5.525-18.01 14.101-21.836 1.093-8.504 8.325-14.881 16.939-14.881 2.603 0 5.099.572 7.427 1.7 5.647-9.644 16.026-15.614 27.204-15.614a31.413 31.413 0 0 1 31.46 29.834c10.096 2.363 17.383 11.573 17.383 22.048 0 12.485-10.107 22.643-22.531 22.643h-68.201z" />
+                        <path fill="#E6501E" d="M288.735 4.042c16.7 0 30.31 13.202 30.979 29.738 9.925 2.141 17.365 11.077 17.365 21.644 0 12.167-9.864 22.143-22.031 22.143h-68.202c-12.858 0-23.282-10.536-23.282-23.394 0-9.583 5.792-17.922 14.064-21.494.925-8.282 7.947-14.723 16.476-14.723 2.751 0 5.342.674 7.626 1.859 5.323-9.414 15.418-15.773 27.005-15.773m0-1c-11.202 0-21.615 5.903-27.401 15.469a17.373 17.373 0 0 0-7.23-1.555c-8.772 0-16.151 6.425-17.396 15.039-8.612 3.961-14.144 12.603-14.144 22.178 0 13.451 10.893 24.394 24.282 24.394h68.202c12.699 0 23.031-10.382 23.031-23.143 0-10.58-7.274-19.897-17.406-22.447C319.6 16.13 305.715 3.042 288.735 3.042" />
+                        <g class="sync-send">
+                            <path fill="#FFF" d="M150.992 80.792a4.68 4.68 0 1 1-9.358 0 4.68 4.68 0 0 1 9.358 0" />
+                            <circle fill="none" stroke="#F9BBA1" stroke-miterlimit="10" cx="146.313" cy="80.792" r="4.679" />
+                            <path fill="#EF6403" d="M148.668 80.792a2.355 2.355 0 1 1-4.71 0 2.355 2.355 0 0 1 4.71 0" />
+                        </g>
+                        <g class="sync-accept1">
+                            <path fill="#FFF" d="M391.674 94.454a4.68 4.68 0 1 1-9.358 0 4.68 4.68 0 0 1 9.358 0" />
+                            <circle fill="none" stroke="#F9BBA1" stroke-miterlimit="10" cx="386.995" cy="94.454" r="4.679" />
+                            <path fill="#EF6403" d="M389.35 94.454a2.355 2.355 0 1 1-4.71 0 2.355 2.355 0 0 1 4.71 0" />
+                        </g>
+                        <g class="sync-accept2">
+                            <path fill="#FFF" d="M472.858 94.454a4.68 4.68 0 1 1-9.358 0 4.68 4.68 0 0 1 9.358 0" />
+                            <circle fill="none" stroke="#F9BBA1" stroke-miterlimit="10" cx="468.179" cy="94.454" r="4.679" />
+                            <path fill="#EF6403" d="M470.534 94.454a2.355 2.355 0 1 1-4.71 0 2.355 2.355 0 0 1 4.71 0" />
+                        </g>
+                        <g class="sync-accept3">
+                            <path fill="#FFF" d="M536.238 94.454a4.68 4.68 0 1 1-9.358 0 4.68 4.68 0 0 1 9.358 0" />
+                            <circle fill="none" stroke="#F9BBA1" stroke-miterlimit="10" cx="531.559" cy="94.454" r="4.679" />
+                            <path fill="#EF6403" d="M533.914 94.454a2.355 2.355 0 1 1-4.71 0 2.355 2.355 0 0 1 4.71 0" />
+                        </g>
+                        <g class="sync-accept4">
+                            <path fill="#FFF" d="M611.656 94.454a4.68 4.68 0 1 1-9.358 0 4.68 4.68 0 0 1 9.358 0" />
+                            <circle fill="none" stroke="#F9BBA1" stroke-miterlimit="10" cx="606.977" cy="94.454" r="4.679" />
+                            <path fill="#EF6403" d="M609.332 94.454a2.355 2.355 0 1 1-4.71 0 2.355 2.355 0 0 1 4.71 0" />
+                        </g>
+                        <path fill="none" class="flash-send flash-transform" stroke="#E6501E" stroke-width=".7" d="M285.974 34.027l-11.217 15.977 7.323-.913-3.308 10.491 11.114-15.088-7.151 1.033z" stroke-linejoin="round" stroke-miterlimit="10"></path>
+                        <path class='rotate rotate1' fill="none" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M140.813 109.889v-2.802h2.802M151.814 98.228v2.802h-2.802M140.925 107.191a6.298 6.298 0 0 0 5.388 3.039 6.308 6.308 0 0 0 6.307-6.306c0-.302-.023-.598-.065-.888m-.853-2.169a6.298 6.298 0 0 0-5.388-3.039 6.306 6.306 0 0 0-6.242 7.192" />
+                        <path class='rotate rotate2' fill="none" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M382.026 122.846v-2.802h2.802M393.027 111.184v2.802h-2.802M382.138 120.147a6.298 6.298 0 0 0 5.388 3.039 6.308 6.308 0 0 0 6.307-6.306c0-.302-.023-.598-.065-.888m-.853-2.169a6.298 6.298 0 0 0-5.388-3.039 6.306 6.306 0 0 0-6.242 7.192" />
+                        <path class='rotate rotate3' fill="none" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M462.679 177.709v-2.802h2.802M473.68 166.048v2.802h-2.802M462.791 175.011a6.298 6.298 0 0 0 5.388 3.039 6.308 6.308 0 0 0 6.242-7.194m-.853-2.169a6.298 6.298 0 0 0-5.388-3.039 6.306 6.306 0 0 0-6.242 7.192" />
+                        <path class='rotate rotate4' fill="none" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M526.326 129.785v-2.802h2.802M537.328 118.124v2.802h-2.802M526.438 127.087a6.298 6.298 0 0 0 5.389 3.039 6.308 6.308 0 0 0 6.241-7.194m-.853-2.169a6.298 6.298 0 0 0-5.388-3.039 6.306 6.306 0 0 0-6.242 7.192" />
+                        <path class='rotate rotate5' fill="none" stroke="#E6501E" stroke-width=".7" stroke-linejoin="round" stroke-miterlimit="10" d="M601.46 118.004a6.298 6.298 0 0 0 5.389 3.039 6.308 6.308 0 0 0 6.241-7.194m-.853-2.169a6.298 6.298 0 0 0-5.388-3.039 6.306 6.306 0 0 0-6.242 7.192M601.348 120.702V117.9h2.802M612.349 109.041v2.802h-2.802" />
+                        </g>
+                        <g fill="#666">
+                            <path d="M268.143 84.251c-1.938.077-3.002.818-3.192 2.223-.077 1.14 1.083 1.901 3.477 2.28 2.964.38 4.389 1.482 4.275 3.306-.191 1.938-1.596 2.965-4.218 3.078-2.736.076-4.371-1.063-4.902-3.42l.969-.342c.304 2.052 1.596 3.078 3.876 3.078 2.089-.076 3.211-.912 3.363-2.508.114-1.292-1.103-2.109-3.648-2.452-2.813-.417-4.181-1.425-4.104-3.021.114-1.938 1.462-2.944 4.047-3.021 2.47.038 3.914 1.045 4.332 3.021l-.969.285c-.305-1.632-1.407-2.468-3.306-2.507zM280.456 86.645h.912l-3.762 8.778c-.646 1.748-1.368 2.546-2.166 2.395-.608 0-1.064-.114-1.368-.342l.114-.456c.304.113.646.151 1.026.113.646.151 1.234-.532 1.767-2.052a.619.619 0 0 0 .114-.228c.037-.077.076-.152.114-.229l-3.477-7.98h.912l2.907 7.239 2.907-7.238zM289.291 89.667v5.301h-.798v-5.187c.037-1.786-.741-2.66-2.338-2.622-1.596.114-2.527 1.007-2.793 2.679v5.13h-.798v-8.265h.798v1.71c.646-1.254 1.653-1.9 3.021-1.938 1.976-.038 2.945 1.025 2.908 3.192zM294.764 87.216c-1.863.038-2.813 1.254-2.851 3.648.037 2.318.987 3.515 2.851 3.591 1.52-.037 2.374-.816 2.564-2.337l.855.228c-.342 1.901-1.502 2.831-3.478 2.793-2.433-.076-3.668-1.5-3.705-4.274.114-2.812 1.33-4.275 3.648-4.39 1.786.077 2.926.912 3.42 2.508l-.854.228c-.38-1.255-1.196-1.919-2.45-1.995z" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="overview">
+            <div class="overview-header container">
+                <div class="overview-bg overview-bg-left">
+                    <img src="https://img.wdstatic.cn/www-nd/images/product/sync/overview-left.337c33ab.svg" width="504" height="260" alt="">
+                    <div class="overview-bg-gra"></div>
+                </div>
+                <div class="overview-bg overview-bg-right">
+                    <img src="https://css.wdstatic.cn/www-nd/images/product/sync/overview.04f3a09f.svg" width="958" height="332" alt="">
+                    <div class="overview-bg-gra"></div>
+                </div>
+                <div class="overview-title-text">
+                    <div class="overview-header-main fzlt">
+                        采用“本地处理，云端同步”的架构
+                        <br> 可以构建
+                        <br> 丰富的实时通信场景。
+                    </div>
+                </div>
+                <!--  <div class="about-more"><a href="" class='about-more-link'>了解更多></a></div> -->
+            </div>
+        </div>
+    </div>
+    <div class="overview-feature sync-feature">
+        <div class="overview-feature-container sync-feature-main container">
+            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/feature-bg.c6368504.svg" class="feature-bg-1" width="684" height="598" alt="">
+            <div class="feature-title text-center">
+                <div class="feature-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/multiple.b62f2604.svg" width="62" height="56" alt=""></div>
+                <div class="feature-title-text feature-text-main fzlt">众多使用场景</div>
+            </div>
+        </div>
+    </div>
+    <div class="overview-feature">
+        <div class="overview-feature-container container">
+            <div class="feature-title text-center">
+                <div class="feature-icon"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/sync-communication-title.66ddd37f.svg" width="38" height="38" alt=""></div>
+                <div class="feature-title-text fzlt">实时数据通信</div>
+                <div class="feature-title-des">
+                    快速实现客户端与服务器，客户端与客户端之间的双向实时通信。
+                </div>
+            </div>
+            <div class="overview-tab clearfix text-center">
+                <div class="overview-tabs-list clearfix">
+                    <span class="overview-tabs-item text-center pull-left current">社交直播</span>
+                    <span class="overview-tabs-item text-center pull-left">物流交通</span>
+                    <span class="overview-tabs-item text-center pull-left">实时游戏</span>
+                    <span class="overview-tabs-item text-center pull-left">智能物联</span>
+                </div>
+                <ul class="overview-tabs-content-list">
+                    <li class="overview-tabs-content-item clearfix current">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/hi.0b84a7f8.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">直播、社交应用中的聊天</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">单聊、群聊的消息同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">房间信息存储</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">直播中的互动操作同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">聊天用户无数量上限</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/live.1b3ceff2.svg" width="625" height="371" alt="">
+                        </div>
+                    </li>
+                    <li class="overview-tabs-content-item clearfix">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/traffic.1196b8a2.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">物流交通中的实时位置同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">物流系统中实时车辆位置同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">打车软件中司机乘客位置同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">外卖配送时快递员的位置同步</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/traffic-big.13dbe2f5.svg" width="625" height="371" alt="">
+                        </div>
+                    </li>
+                    <li class="overview-tabs-content-item clearfix">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/game.6050496e.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">网络游戏中的实时操作同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">移动操作指令的实时同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">场景信息的实时同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">画面状态的实时同步</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/game-big.7e7d5f06.svg" width="625" height="371" alt="">
+                        </div>
+                    </li>
+                    <li class="overview-tabs-content-item clearfix">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/things.0c7a47b5.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">物联网中的远程控制</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">设备运行状态同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">开关指令同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">设备消息推送</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">设备端采集数据的上报</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/things-big.29757647.svg" width="625" height="371" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="feature-more text-center"><a href="" class="about-more-link">了解更多></a></div> -->
+        </div>
+    </div>
+    <div class="overview-feature feature-cost">
+        <div class="overview-feature-container container">
+            <div class="feature-title text-center">
+                <div class="feature-icon">
+                    <img src="https://css.wdstatic.cn/www-nd/images/product/sync/distribute.fe39a945.svg" width="46" height="40" alt="">
+                </div>
+                <div class="feature-title-text feature-distrbute-title fzlt">实时数据分发</div>
+                <div class="feature-title-des">
+                    将数据由服务器向客户端单向实时广播。
+                </div>
+            </div>
+            <div class="overview-tab clearfix text-center">
+                <div class="overview-tabs-list clearfix">
+                    <span class="overview-tabs-item text-center pull-left current">股票金融</span>
+                    <span class="overview-tabs-item text-center pull-left">社交网站</span>
+                </div>
+                <ul class="overview-tabs-content-list">
+                    <li class="overview-tabs-content-item distribute-item clearfix current">
+                        <div class="overview-tabs-content-text text-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon">
+                                    <img src="https://img.wdstatic.cn/www-nd/images/product/sync/finacial-icon.d9993c7a.svg" width="25" height="25" alt="">
+                                </span>
+                                <span class="tabs-title-text">股票金融应用中的实时行情同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">股票、外汇、期货等行情信息的实时推送</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">实时交易信息的推送</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-left">
+                            <img src="https://css.wdstatic.cn/www-nd/images/product/sync/finacial.434ac6fb.svg" width="538" height="321" alt="">
+                        </div>
+                    </li>
+                    <li class="overview-tabs-content-item distribute-item sites-item clearfix">
+                        <div class="overview-tabs-content-text text-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/sites-icon.8e88f0cd.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">社交网站中的消息动态</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">新鲜事分发</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">好友状态同步</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">动态消息实时推送</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">评论通知实时推送</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-left">
+                            <img src="https://css.wdstatic.cn/www-nd/images/product/sync/sites.27ef1b77.svg" width="385" height="321" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="feature-more text-center"><a href="" class="about-more-link">了解更多></a></div> -->
+        </div>
+    </div>
+    <div class="overview-feature feature-quick">
+        <div class="overview-feature-container container">
+            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/feature-bg.c6368504.svg" class="feature-bg-2" width="544" height="476" alt="">
+            <div class="feature-title text-center">
+                <div class="feature-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/store.9dfee54c.svg" width="51" height="36" alt=""></div>
+                <div class="feature-title-text feature-store-title fzlt">实时数据存储</div>
+                <div class="feature-title-des">
+                    提供方便快捷的云端数据存储功能。
+                </div>
+            </div>
+            <div class="overview-tab clearfix text-center">
+                <div class="overview-tabs-list clearfix">
+                    <span class="overview-tabs-item text-center pull-left current">MiniSite</span>
+                    <span class="overview-tabs-item text-center pull-left">小程序</span>
+                </div>
+                <ul class="overview-tabs-content-list">
+                    <li class="overview-tabs-content-item store-item clearfix current">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/active.008b31c2.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">MiniSite 中的数据存储</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">产品介绍站点</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">H5 活动营销页面</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://css.wdstatic.cn/www-nd/images/product/sync/active-big.4259da21.svg" width="523" height="364" alt="">
+                        </div>
+                    </li>
+                    <li class="overview-tabs-content-item store-item clearfix">
+                        <div class="overview-tabs-content-text text-left pull-left">
+                            <div class="tabs-content-text-title">
+                                <span class="tabs-title-icon"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/wxapp.ed64e738.svg" width="25" height="25" alt=""></span>
+                                <span class="tabs-title-text">网站中小程序的数据存储</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">在线调查</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">活动投票</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">网络报名</span>
+                            </div>
+                            <div class="tabs-content-item">
+                                <soan class="circle"></soan>
+                                <span class="content-item-text">游戏积分榜</span>
+                            </div>
+                        </div>
+                        <div class="overview-tabs-content-image live-image pull-right">
+                            <img src="https://css.wdstatic.cn/www-nd/images/product/sync/wxapp-big.40b875c8.svg" width="450" height="364" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="feature-more text-center"><a href="" class="about-more-link">了解更多></a></div> -->
+        </div>
+    </div>
+    <div class="overview-feature worth-feature">
+        <div class="overview-feature-container container">
+            <img src="https://img.wdstatic.cn/www-nd/images/product/sync/feature-bg.c6368504.svg" class="feature-bg-1" width="684" height="598" alt="">
+            <div class="feature-title text-center">
+                <div class="feature-icon"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/worth.7e8c314c.svg" width="47" height="47" alt=""></div>
+                <div class="feature-title-text worth-title-text">为客户提供的价值</div>
+            </div>
+            <ul class="feature-details-list clearfix">
+                <li class="feature-details-item text-center">
+                    <div class="feature-item-image text-center"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/stable.fb6a74b3.svg" width="128" height="86" alt=""></div>
+                    <div class="feature-item-title text-center">提供了稳定可靠的服务</div>
+                    <div class="break-line"></div>
+                    <ul class="feature-item-sublist">
+                        <li class="feature-sublist-point">获权威安全评测网站 SSL Labs A+ 高分</li>
+                        <li class="feature-sublist-point">高达99.95%的服务可用性保证</li>
+                        <li class="feature-sublist-point">每天稳定承载亿级的 API 调用</li>
+                        <li class="feature-sublist-point">选用国内最优质的 BGP 核心机房</li>
+                    </ul>
+                </li>
+                <li class="feature-details-item text-center">
+                    <div class="feature-item-image text-center"><img src="https://css.wdstatic.cn/www-nd/images/product/sync/easy.d78f3d48.svg" width="103" height="86" alt=""></div>
+                    <div class="feature-item-title text-center">简化了开发工作</div>
+                    <div class="break-line"></div>
+                    <ul class="feature-item-sublist">
+                        <li class="feature-sublist-point">API学习成本低，5分钟实现实时通信</li>
+                        <li class="feature-sublist-point">大量免费的代码资源，让开发变得简单 </li>
+                        <li class="feature-sublist-point">支持主流客户端平台，免去适配烦恼</li>
+                    </ul>
+                </li>
+                <li class="feature-details-item text-center meeting-item">
+                    <div class="feature-item-image text-center"><img src="https://img.wdstatic.cn/www-nd/images/product/sync/save.6495d0d6.svg" width="103" height="86" alt=""></div>
+                    <div class="feature-item-title text-center">节省了运维成本</div>
+                    <div class="break-line"></div>
+                    <ul class="feature-item-sublist">
+                        <li class="feature-sublist-point">无须购买服务器和带宽即可实现实时通信</li>
+                        <li class="feature-sublist-point">无需担心突发压力，资源随时按需扩展</li>
+                        <li class="feature-sublist-point">跨机房多数据备份，保证数据安全</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="feature-more text-center"><a href="/product/sync-function" class="btn btn-org-empty sync-function-link">了解产品功能</a></div>
+        </div>
+    </div>
+    <div class="product-footer text-center">
+    <div class="product-footer-title fzlt">使用野狗，快速开展你的业务</div>
+    <div class="product-footer-text">使用野狗SDK，为应用增加实时语音、视频、消息功能，构建你的实时通信业务。丰富的示例代码和完整的API文档，支持多平台开发，助力产品快速上线。</div>
+    <a href="/my-account/signup" class="product-sign-btn btn btn-org-full">立即注册</a>
+</div> <footer>
+    <div class="footer container rm-l-p rm-r-p">
+        <div class="footer-left">
+            <a href="/"><img src="https://img.wdstatic.cn/www-nd/images/footer-logo.520e0511.svg" alt="野狗" width="96" width="36" height="38"></a>
+        </div>
+        <div class="footer-right">
+            <ul class="header-nav footer-nav pull-left clearfix">
+                <li class="nav-item pull-left"><a href="/product/product-overview" class="footer-nav-link">产品</a><span class="v-line">|</span></li>
+                <li class="nav-item pull-left"><a href="/product/pricing" class="footer-nav-link">价格</a><span class="v-line">|</span></li>
+                <li class="nav-item pull-left"><a href="/overview/" class="footer-nav-link">文档</a><span class="v-line">|</span></li>
+                <li class="nav-item pull-left"><a href="/life/wilddog-contact.html" class="footer-nav-link">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <a href="/"><img src="https://css.wdstatic.cn/www-nd/images/footer-logo-m.84529912.svg" alt="野狗" class="footer-logo-m" width="88"></a>
+        </div>
+    </div>
+</footer> <script src="https://img.wdstatic.cn/www-nd/scripts/vendor.b7b7f6c1.js"></script>
+    <script src="https://css.wdstatic.cn/www-nd/scripts/header.a83e4263.js"></script>
+    <script src="https://img.wdstatic.cn/www-nd/scripts/product-overview.cfa3a525.js"></script>
+    <script src="https://css.wdstatic.cn/www-nd/scripts/sync-overview.0ab0a695.js"></script>
+    <!-- Google Tag Manager -->
+    <script>
+    window.addEventListener('load',function(){
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src="/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-53PGC2');    
+    })
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+        var baseExp='channel1'
+    </script></body>
+
+</html>

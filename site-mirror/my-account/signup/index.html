@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh" data-pagefind-ignore>
+
+<head>
+    <!-- End of Google Analytics Content Experiment code -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>野狗 - 注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="野狗是国内领先的实时通信云，由野狗科技推出，为企业和个人开发者提供数据存储和实时通信服务。野狗通信云被广泛应用于聊天通信、在线协作、网络游戏、远程控制、实时定位等多种业务场景，可以帮助企业和个人开发者减小后端开发的复杂度，降低研发成本，缩短软件的交付时间。 ">
+    <meta name="keywords" content="wilddog, WildDog, realtime, PaaS, BaaS, HTMl5, CoAP, Thread, REST, Javascript, DTLS, websockets, realtime sync, UDP, JSON, developer, B2B, SDK, iOS, Android, Mac OS, Windows, 野狗, 野狗实时, 野狗云, 实时应用, 实时同步, 实时数据库, 跨平台, 物联网, 构建实时应用, 受限网络, 传感网, 解决方案, 云平台, 云计算, 云服务, 公有云, 私有云, 开发者">
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        window.location.href="/outmen";
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="/_m/www-nd/styles/wilddog-ui/wilddog-ui-6faff576b5.css"/>
+ <link rel="dns-prefetch" href="https://docs.wilddog.com/">
+<link rel="dns-prefetch" href="https://talks.z.wilddog.com">
+<link rel="dns-prefetch" href="https://github.com">
+<link rel="dns-prefetch" href="https://www.github.com">
+<link rel="dns-prefetch" href="https://cdn.v2ex.com">
+<link rel="dns-prefetch" href="https://life.wilddog.com">
+<link rel="dns-prefetch" href="https://blog.wilddog.com/">
+    <link rel="stylesheet" href="/_m/www-nd/styles/account/signup-59b6f60811.css"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="main">
+                <h2 class="fzlt title">注册野狗帐号</h2>
+                <form accept-charset="utf-8" class="submit-form">
+                    <input type="password" style="display: none;" class="hack">
+                    <input type="hidden" id="token" name="token" value="">
+                    <div class="input-group input-group-email">
+                        <p class="input-title">邮箱：<span class="warning email-warning"><span class="icon-06-2 icon"></span><span class="text">请填写有效邮箱</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="text" name="email" class="input email-input" placeholder="用于登录和密码找回，请填写真实邮箱">
+                        </div>
+                    </div>
+                    <div class="input-group input-group-password">
+                        <p class="input-title">密码：<span class="warning password-warning"><span class="icon-06-2 icon"></span><span class="text">至少八位</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="password" name="password" class="input password-input" placeholder="至少八位，区分大小写">
+                        </div>
+                    </div>
+                    <div class="sub text-center">
+                        <span class="warning signup-warning"><span class="icon-06-2 icon"></span><span class="text">操作过于频繁</span></span>
+                        <button class="btn btn-org-full" id="signup-btn">注&nbsp;&nbsp;册</button>
+                    </div>
+                    <div class="pro">
+                        注册帐号，代表你同意 《<a href="/terms/sa" target="_blank" class="agreement">Wilddog服务协议</a>》
+                    </div>
+                    <div class="mobile-login">已有帐号？ <a href="/my-account/login">登录</a></div>
+                </form>
+                <form accept-charset="utf-8" class="submit-form hide step2">
+                    <div class="input-group input-group-name">
+                        <p class="input-title">姓名：<span class="warning name-warning"><span class="icon-06-2 icon"></span><span class="text">请填写你的真实姓名</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="text" name="name" class="input name-input" placeholder="请填写真实姓名" autofocus="true">
+                        </div>
+                    </div>
+                    <div class="input-group input-group-company">
+                        <p class="input-title">企业名称：<span class="warning company-warning"><span class="icon-06-2 icon"></span><span class="text">请填写企业名称</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="text" name="companyName" class="input company-input" placeholder="请填写企业名称">
+                        </div>
+                    </div>
+                    <div class="input-group input-group-scale">
+                        <p class="input-title">企业规模：<span class="warning scale-warning"><span class="icon-06-2 icon"></span><span class="text">请选择您的企业规模</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <ul class="options">
+                                <li class="option" data-num="30">1-30</li>
+                                <li class="option" data-num="60">30-60</li>
+                                <li class="option" data-num="120">60-120</li>
+                                <li class="option" data-num="1200">120-1200</li>
+                                <li class="option" data-num="2000">大于1200</li>
+                            </ul>
+                            <span class="select" id="scale" data-num=""></span><i class="arrow"></i>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-Interested">
+                        <p class="input-title">感兴趣产品：<span class="warning interested-warning"><span class="icon-06-2 icon"></span><span class="text">请选择您感兴趣的产品</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <ul class="options">
+                                <li class="option">智能短信</li>
+                                <li class="option">实时通信引擎</li>
+                            </ul>
+                            <span class="select" id="interested"></span><i class="arrow"></i>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-job">
+                        <p class="input-title">职位：<span class="warning job-warning"><span class="icon-06-2 icon"></span><span class="text">请选择您的职位</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <ul class="options">
+                                <li class="option">CEO</li>
+                                <li class="option">CTO/技术总监</li>
+                                <li class="option">研发人员</li>
+                                <li class="option">运营</li>
+                                <li class="option">其他</li>
+                            </ul>
+                            <span class="select" id="job"></span><i class="arrow"></i>
+                        </div>
+                    </div>
+                    <div class="sub text-center">
+                        <span class="warning signup-warning"><span class="icon-06-2 icon"></span><span class="text">操作过于频繁</span></span>
+                        <button class="btn btn-org-full" id="step2-btn">下一步</button>
+                    </div>
+                    <div class="pro">
+                        注册帐号，代表你同意 《<a href="/terms/sa" target="_blank" class="agreement">Wilddog服务协议</a>》
+                    </div>
+                </form>
+                <form accept-charset="utf-8" class="submit-form hide step3">
+                    <div class="input-group input-group-phone">
+                        <p class="input-title">手机号码：<span class="warning phone-warning"><span class="icon-06-2 icon"></span><span class="text">请填写11位手机号码</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="text" name="phone" class="input phone-input" placeholder="请输入您的手机号码">
+                            <button class="btn btn-org-full getVeri">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-veri">
+                        <p class="input-title">短信验证码：<span class="warning veri-warning"><span class="icon-06-2 icon"></span><span class="text">短信验证码错误</span></span>
+                        </p>
+                        <div class="input-fill">
+                            <input type="text" name="smsCode" class="input veri-input" placeholder="请填写4位短信验证码">
+                        </div>
+                    </div>
+                    <div class="sub text-center">
+                        <span class="warning signup-warning"><span class="icon-06-2 icon"></span><span class="text">操作过于频繁</span></span>
+                        <button class="btn btn-org-full" id="info-btn">最后一步，立即注册</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-text">
+                <div class="des"></div>
+                <div class="link">已有野狗帐号？<a href="/my-account/login">登录</a></div>
+            </div>
+            <div class="fzlt" style="display:none !important">完善野狗帐号信息</div>
+        </div>
+    </div>
+    <script src="/_m/www-nd/scripts/vendor/vendor-4780dcbbfc.js"></script>
+    <script src="/_m/www-nd/scripts/account/signup-503539bc18.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        wd.signup.init();
+    })
+
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+    window.addEventListener('load',function(){
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src="/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-53PGC2');
+    })
+    </script>
+    <!-- End Google Tag Manager -->
+</body>
+
+</html>
