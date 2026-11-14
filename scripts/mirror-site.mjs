@@ -53,6 +53,8 @@ const queue = new Map(); // key: 原始绝对URL(小写host) -> { ts, out } 待�
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const decodeP = (p) => { try { return decodeURIComponent(p); } catch { return p; } };
+// 资源存储路径须去掉 query/fragment (浏览器请求不携带, 磁盘文件名带则无法命中)
+const stripQF = (p) => p.split('?')[0].split('#')[0];
 
 // ---------- URL 重写 ----------
 
@@ -151,7 +153,7 @@ function rewriteAttrs(html, pageUrl, collectAssets) {
     if (collectAssets && ASSET_RE.test(local.split('?')[0].split('#')[0])) {
       try {
         const abs = new URL(val, pageUrl);
-        queue.set(abs.origin + abs.pathname + abs.search, { ts: TS.get(pageUrl) || CURRENT_TS, out: local });
+        queue.set(abs.origin + abs.pathname + abs.search, { ts: TS.get(pageUrl) || CURRENT_TS, out: stripQF(local) });
       } catch { /* 忽略 */ }
     }
     return `${attr}="${local}"`;
@@ -167,7 +169,7 @@ function rewriteCssUrls(css, cssUrl) {
     if (ASSET_RE.test(local.split('?')[0].split('#')[0])) {
       try {
         const abs = new URL(val, cssUrl);
-        queue.set(abs.origin + abs.pathname + abs.search, { ts: CURRENT_TS, out: local });
+        queue.set(abs.origin + abs.pathname + abs.search, { ts: CURRENT_TS, out: stripQF(local) });
       } catch { /* 忽略 */ }
     }
     return `url("${local}")`;
