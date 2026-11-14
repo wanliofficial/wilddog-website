@@ -1,0 +1,19 @@
+/* wilddog 镜像站移动端补丁 — 只修横向溢出, PC 端不影响 */
+@media (max-width: 768px) {
+  /* blog (WordPress): 文章内大图约束 */
+  [data-mirror-site='blog'] .entry-content img,
+  [data-mirror-site='blog'] .entry-summary img { max-width: 100%; height: auto; }
+  /* download: 头部阴影图 + PC 横向拖动卡片带改纵向堆叠 */
+  [data-mirror-site='www'] img[src*='download/shadow'] { max-width: 100%; height: auto; }
+  [data-mirror-site='www'] .download-boxs { width: auto; max-height: none; }
+  [data-mirror-site='www'] .download-box { float: none; margin: 16px auto; }
+  /* life 联系页: textarea 固定 cols 撑宽 */
+  [data-mirror-site='life'] textarea { width: 100%; max-width: 100%; box-sizing: border-box; }
+  /* hacker (纯 PC 活动页): 图片/视频约束 + 固定宽容器收缩 */
+  [data-mirror-site='hacker'] img,
+  [data-mirror-site='hacker'] video { max-width: 100%; height: auto; }
+  [data-mirror-site='hacker'] .introduce,
+  [data-mirror-site='hacker'] .band-des,
+  [data-mirror-site='hacker'] .band-des .text,
+  [data-mirror-site='hacker'] .start-wd-text { max-width: 100%; box-sizing: border-box; }
+}
